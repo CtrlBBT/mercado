@@ -1,4 +1,5 @@
-const produto_controller = require("../controllers/produto.js")
+mercado_controller = require("../controllers/mercado.js")
+fornecedor_controller = require("../controllers/fornecedor.js")
 
 let proxId = 1;
 
@@ -6,7 +7,8 @@ const model = (body, id = proxId++) => {
     if(
         body.nome != undefined &&
         body.nome != "" &&
-        body.quantidade == isNaN &&
+        body.quantidade != undefined &&
+        body.quantidade > 0 &&
         mercado_controller.show(body.mercado_id) &&
         fornecedor_controller.show(body.fornecedor_id)
     ) {
@@ -14,8 +16,8 @@ const model = (body, id = proxId++) => {
             id,
             nome: body.nome,
             quantidade: body.quantidade,
-            mercado_id: body.endereco,
-            forncededor_id: body.fornecedor_id
+            mercado: mercado_controller.show(body.mercado_id).nome,
+            fornecedor: fornecedor_controller.show(body.fornecedor_id).nome
         }
     }
 }

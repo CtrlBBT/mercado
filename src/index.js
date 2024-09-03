@@ -9,8 +9,6 @@ const port = 5600
 
 app.use(express.json())
 
-app.use(cep_endereco) // Middleware de uso global
-
 app.use("/fornecedor", fornecedor_router)
 app.use("/mercado", mercado_router)
 app.use("/produto", produto_router)

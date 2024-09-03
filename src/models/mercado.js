@@ -3,9 +3,8 @@ let proxId = 1;
 const model = (body, id = proxId++) => {
     if(
         body.nome != undefined &&
-        body.CEP != undefined &&
-        body.nome != "" &&
-        body.CEP != ""
+        body.endereco != undefined &&
+        body.nome != ""
     ) {
         return {
             id,
